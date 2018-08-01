@@ -6,7 +6,7 @@
     "start:dev": "webpack --config ./webpack.dev.js --watch",
     "dev": "npm-run-all --parallel start playground",
     "debug": "dotenv -- nodemon -e ts,graphql -x ts-node --inspect ./src/index.ts",
-    "clean": "rimraf server",
+    "clean": "rimraf dist",
     "playground": "graphql playground",
     "build": "npm run clean && webpack --config ./webpack.prod.js",
     "deploy:prisma": "cross-var prisma login -k $PRISMA_SERVICE_TOKEN && prisma deploy",
