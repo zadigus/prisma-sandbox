@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "allowJs": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "lib": [
+      "esnext", "dom", "es6"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.steps.ts",
+    "**/*.test.ts"
+  ],
+  "files": ["typings/typings.d.ts"]
+}

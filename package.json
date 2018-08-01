@@ -1,0 +1,48 @@
+{
+  "name": "prisma-sandbox",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node ./dist/main.js",
+    "start:dev": "webpack --config ./webpack.dev.js --watch",
+    "dev": "npm-run-all --parallel start playground",
+    "debug": "dotenv -- nodemon -e ts,graphql -x ts-node --inspect ./src/index.ts",
+    "clean": "rimraf server",
+    "playground": "graphql playground",
+    "build": "npm run clean && webpack --config ./webpack.prod.js",
+    "deploy:prisma": "cross-var prisma login -k $PRISMA_SERVICE_TOKEN && prisma deploy",
+    "postinstall": "npm run deploy:prisma && npm run build"
+  },
+  "dependencies": {
+    "bcryptjs": "2.4.3",
+    "express": "^4.16.3",
+    "graphql-yoga": "^1.14.10",
+    "jsonwebtoken": "8.2.1",
+    "prisma-binding": "1.5.18"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "2.4.1",
+    "@types/express": "^4.16.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "cross-var": "^1.1.0",
+    "dotenv-cli": "1.4.0",
+    "eslint": "^5.2.0",
+    "graphql-cli": "^2.16.5",
+    "graphql-import-loader": "^0.2.1",
+    "json-loader": "^0.5.7",
+    "nodemon": "1.17.3",
+    "nodemon-webpack-plugin": "^4.0.3",
+    "npm-run-all": "4.1.2",
+    "prisma": "^1.12.2",
+    "rimraf": "2.6.2",
+    "ts-loader": "^4.4.2",
+    "ts-node": "^6.2.0",
+    "tslint": "^5.11.0",
+    "typescript": "2.8.3",
+    "uglifyjs-webpack-plugin": "^1.2.7",
+    "webpack": "^4.14.0",
+    "webpack-cli": "^2.1.5",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
